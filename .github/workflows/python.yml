@@ -1,0 +1,21 @@
+name: Scheduled Python Job
+
+on:  
+  schedule:  
+    - cron: '50 23 * * *'  # 在每天的 00:00 UTC 时间触发
+
+jobs:  
+  build:  
+    runs-on: ubuntu-latest  
+  
+    steps:  
+      - name: Set up Python  
+        uses: actions/setup-python@v2  
+        with:  
+          python-version: 3.9  # 选择所需的 Python 版本  
+  
+      - name: Checkout code  
+        uses: actions/checkout@v2  
+  
+      - name: Run Python script  
+        run: python demo.py  # 替换为您要运行的 Python 脚本的命令  
